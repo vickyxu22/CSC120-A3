@@ -5,7 +5,7 @@ public class Conversation {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Random rand = new Random();
-        String[] randomResponses = {"Hmm.", "Okay", "Great!", "Uh-huh"};
+        String[] RandomResponses = {"Hmm.", "Okay", "Great!", "Uh-huh", "Sounds good", "HHHHHHH"};
         String[] mirroredWords = {"i", "me", "my", "am", "you", "your"};
         String[] mirroredResponses = {"you", "you", "your", "are", "I", "my"};
         System.out.print("How many rounds? ");
@@ -18,7 +18,7 @@ public class Conversation {
             String userResponse = input.nextLine().toLowerCase();
             transcript += userResponse + "\n";
             String[] words = userResponse.split("\\s+");
-            String botResponse = "";
+            String Response = "";
             for (int i = 0; i < words.length; i++) {
                 for (int j = 0; j < mirroredWords.length; j++) {
                     if (words[i].equals(mirroredWords[j])) {
@@ -27,12 +27,12 @@ public class Conversation {
                     }
                 }
             }
-            botResponse = String.join(" ", words);
-            if (botResponse.equals(userResponse)) {
-                botResponse = randomResponses[rand.nextInt(randomResponses.length)];
+            Response = String.join(" ", words);
+            if (Response.equals(userResponse)) {
+                Response = RandomResponses[rand.nextInt(RandomResponses.length)];
             }
-            System.out.println(botResponse);
-            transcript += botResponse + "\n";
+            System.out.println(Response);
+            transcript += Response + "\n";
             round++;
         }
         System.out.println("Thanks for chatting!");
